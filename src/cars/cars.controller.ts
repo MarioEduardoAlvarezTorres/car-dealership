@@ -4,6 +4,7 @@ import {
   Get,
   Param,
   ParseIntPipe,
+  ParseUUIDPipe,
   Post,
   Patch,
   Delete,
@@ -19,7 +20,7 @@ export class CarsController {
     return this.carsService.findAll();
   }
   @Get(':id')
-  getCarById(@Param('id', ParseIntPipe) id: number) {
+  getCarById(@Param('id', ParseUUIDPipe) id: string) {
     return this.carsService.findOneBy(id);
   }
   @Post()

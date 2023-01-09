@@ -8,9 +8,9 @@ import {
   Post,
   Patch,
   Delete,
-  Put,
 } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import { CreateCarDTO } from './dto/create-car.dto';
 
 @Controller('cars')
 export class CarsController {
@@ -24,9 +24,9 @@ export class CarsController {
     return this.carsService.findOneBy(id);
   }
   @Post()
-  createCar(@Body() body: any) {
+  createCar(@Body() createCardDto: CreateCarDTO) {
     return {
-      body,
+      createCardDto,
     };
   }
   @Patch(':id')

@@ -8,6 +8,8 @@ import {
   Post,
   Patch,
   Delete,
+  UsePipes,
+  ValidationPipe,
 } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { CreateCarDTO } from './dto/create-car.dto';
@@ -24,6 +26,7 @@ export class CarsController {
     return this.carsService.findOneBy(id);
   }
   @Post()
+  @UsePipes(ValidationPipe)
   createCar(@Body() createCardDto: CreateCarDTO) {
     return {
       createCardDto,

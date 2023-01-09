@@ -43,5 +43,13 @@ export class CarsService {
     return car;
   }
   updte(id: string, updateCarDTO: UpdateCarDTO) {
+    let carDB = this.findOneBy(id);
+    this.cars = this.cars.map((car) => {
+      if (car.id === id) {
+        carDB = { ...carDB, ...updateCarDTO, id };
+        return carDB;
+      }
+      return car;
+    });
   }
 }

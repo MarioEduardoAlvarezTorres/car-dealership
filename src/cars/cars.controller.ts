@@ -26,7 +26,6 @@ export class CarsController {
     return this.carsService.findOneBy(id);
   }
   @Post()
-  @UsePipes(ValidationPipe)
   createCar(@Body() createCardDto: CreateCarDTO) {
     return {
       createCardDto,
